@@ -1,0 +1,5 @@
+{
+    "require": {
+        "app-insights-php/application-insights": "0.4.7"
+    }
+  }

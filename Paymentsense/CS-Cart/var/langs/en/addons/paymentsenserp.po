@@ -1,0 +1,49 @@
+msgid ""
+msgstr "Project-Id-Version: Paymentsense Remote Payments 1.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::paymentsenserp"
+msgid "Paymentsense Remote Payments"
+msgstr "Paymentsense Remote Payments"
+
+msgctxt "Addons::description::paymentsenserp"
+msgid "Allows you to take payments via Paymentsense Remote Payments"
+msgstr "Allows you to take payments via Paymentsense Remote Payments"
+
+msgctxt "Languages::order_prefix"
+msgid "Order Prefix"
+msgstr "Order Prefix"
+
+msgctxt "Languages::gateway_username"
+msgid "Gateway Username/URL"
+msgstr "Gateway Username/URL"
+
+msgctxt "Languages::gateway_jwt"
+msgid "Gateway JWT"
+msgstr "Gateway JWT"
+
+msgctxt "Languages::transaction_type"
+msgid "Transaction Type"
+msgstr "Transaction Type"
+
+msgctxt "Languages::gateway_environment"
+msgid "Gateway Environment"
+msgstr "Gateway Environment"
+
+msgctxt "Languages::sale"
+msgid "Sale"
+msgstr "Sale"
+
+msgctxt "Languages::preauth"
+msgid "Preauth"
+msgstr "Preauth"
+
+msgctxt "Languages::test"
+msgid "Test"
+msgstr "Test"
+
+msgctxt "Languages::production"
+msgid "Production"
+msgstr "Production"

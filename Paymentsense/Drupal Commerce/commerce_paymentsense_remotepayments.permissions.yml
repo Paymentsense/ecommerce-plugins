@@ -1,0 +1,4 @@
+administer commerce paymentsense remote payments:
+  title: 'Administer Commerce Paymentsense'
+  description: 'Allow to access the administration form to configure Commerce Paymentsense Remote Payments settings.'
+  restrict access: true

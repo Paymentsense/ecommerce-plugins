@@ -1,0 +1,54 @@
+.page-paymentsenserp-customer-redirect #content, .page-paymentsenserp-payment-form #content {
+    padding: 2rem;
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.page-paymentsenserp-customer-redirect #paymentsenserp-links, .page-paymentsenserp-payment-form #paymentsenserp-links {
+    padding: 0.5rem 0 0 0;
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.page-paymentsenserp-customer-redirect #paymentsenserp-links-chevron, .page-paymentsenserp-payment-form #paymentsenserp-links-chevron {
+    line-height: 0.9;
+}
+
+#paymentsenserp_title {
+    padding-top: .2em;
+    padding-bottom: 1em;
+}
+
+#paymentsenserp_description, #paymentsenserp_message {
+    padding-top: 0;
+    padding-bottom: 1em;
+}
+
+#paymentsenserp-submit-payment-btn {
+    visibility: hidden;
+    min-width: 200px;
+}
+
+#paymentsenserp-button-div {
+    padding: 10px 5px 10px 5px;
+    text-align: right;
+}
+
+#paymentsenserp-payment-div iframe {
+    width: 100%;
+}
+
+#paymentsenserp-payment-div {
+    padding: 0;
+}
+
+iframe.threeDs {
+    width: 370px;
+    height: 366px;
+    margin: 100px 0 0 -175px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    background-color: #FFF;
+}

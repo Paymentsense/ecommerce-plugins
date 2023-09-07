@@ -1,0 +1,10 @@
+commerce_paymentsense_remotepayments.info:
+  path: '/paymentsense/diagnostics'
+  methods: ['POST', 'GET']
+  defaults:
+    _controller: '\Drupal\commerce_paymentsense_remotepayments\Controller\DiagnosticsController::diagnostics'
+  options:
+    no_cache: TRUE
+
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Implements the shopping cart system and add to cart features.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_paymentsense_remotepayments_theme($existing, $type, $theme, $path) {
+  return [
+    'paymentsense_offsite_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}

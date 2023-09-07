@@ -1,0 +1,24 @@
+.breadcrumb {
+    visibility: hidden;
+}
+
+#paymentsenserp-errors-div {
+padding-top: 16px;
+}
+
+#paymentsenserp-submit-payment-btn {
+    visibility: hidden;
+}
+#paymentsenserp-payment-div iframe { width: 100%; }
+#paymentsenserp-payment-div { padding: 0; }
+iframe.threeDs {
+    width: 370px;
+    height: 366px;
+    margin: 100px 0 0 -175px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    background-color: #FFF;
+}
+

@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2022 Paymentsense Ltd.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+@author      Paymentsense
+@copyright   2022 Paymentsense Ltd.
+@license     https://www.gnu.org/licenses/gpl-3.0.html
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="paymentsense_remotepayments_init" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>Paymentsense\RemotePayments\Block\Adminhtml\System\Config\Fieldset\Init</frontend_model>
+            </group>
+            <group id="paymentsense_remotepayments" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <fieldset_css>complex remotepayments-section</fieldset_css>
+                <attribute type="displayIn">recommended_solutions</attribute>
+                <label>Paymentsense - Remote Payments</label>
+                <frontend_model>Paymentsense\RemotePayments\Block\Adminhtml\System\Config\Fieldset\RemotePayments</frontend_model>
+                <comment><![CDATA[Accept credit/debit cards through Paymentsense.]]></comment>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <config_path>payment/paymentsense_remotepayments/active</config_path>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <config_path>payment/paymentsense_remotepayments/title</config_path>
+                    <validate>required-entry</validate>
+                    <can_be_empty>0</can_be_empty>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="gateway_username" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Gateway Username/URL</label>
+                    <tooltip><![CDATA[This is the gateway username or URL.]]></tooltip>
+                    <config_path>payment/paymentsense_remotepayments/gateway_username</config_path>
+                    <validate>required-entry</validate>
+                    <can_be_empty>0</can_be_empty>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="gateway_jwt" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Gateway JWT</label>
+                    <tooltip><![CDATA[This is the gateway JWT.]]></tooltip>
+                    <config_path>payment/paymentsense_remotepayments/gateway_jwt</config_path>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="transaction_type" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Transaction Type</label>
+                    <tooltip><![CDATA[If you wish to obtain authorisation for the payment only, as you intend to manually collect the payment via the MMS, choose Pre-auth.]]></tooltip>
+                    <config_path>payment/paymentsense_remotepayments/transaction_type</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\TransactionType</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="gateway_environment" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Gateway environment</label>
+                    <config_path>payment/paymentsense_remotepayments/gateway_environment</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\GatewayEnvironment</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>New Order Status</label>
+                    <tooltip><![CDATA[This is the default order status for new orders.]]></tooltip>
+                    <config_path>payment/paymentsense_remotepayments/order_status</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\Source\Order\Status\NewStatus</source_model>
+                    <validate>required-entry</validate>
+                    <can_be_empty>0</can_be_empty>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Applicable Countries</label>
+                    <config_path>payment/paymentsense_remotepayments/allowspecific</config_path>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Specific Countries</label>
+                    <config_path>payment/paymentsense_remotepayments/specificcountry</config_path>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <validate>required-entry</validate>
+                    <can_be_empty>0</can_be_empty>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="allowspecific">1</field>
+                    </depends>
+                </field>
+                <field id="payment_currency" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment Currency</label>
+                    <tooltip><![CDATA[This option allows the customer to be charged in the display currency or in the base currency. Applicable in multi-currency configurations.]]></tooltip>
+                    <config_path>payment/paymentsense_remotepayments/payment_currency</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\PaymentCurrency</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="allow_specific_currency" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allow Specific Currencies</label>
+                    <config_path>payment/paymentsense_remotepayments/allow_specific_currency</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\Source\Locale\Currency\AllSpecificCurrencies</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="specific_currencies" translate="label" type="multiselect" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Specific Currencies</label>
+                    <config_path>payment/paymentsense_remotepayments/specific_currencies</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\Source\Locale\Currency\Currency</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="allow_specific_currency">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="log_level" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Log Level</label>
+                    <config_path>payment/paymentsense_remotepayments/log_level</config_path>
+                    <source_model>Paymentsense\RemotePayments\Model\Config\LogLevel</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

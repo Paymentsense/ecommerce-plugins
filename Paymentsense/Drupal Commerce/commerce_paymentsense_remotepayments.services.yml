@@ -1,0 +1,13 @@
+services:
+
+  Drupal\commerce_paymentsense_remotepayments\ModuleDiagnostics\ModuleDiagnostics:
+    arguments: []
+  Drupal\commerce_paymentsense_remotepayments\ModuleDiagnostics\ModuleDiagnosticsInterface: '@Drupal\commerce_paymentsense_remotepayments\ModuleDiagnostics\ModuleDiagnostics'
+
+  Drupal\commerce_paymentsense_remotepayments\ConnectE\Client:
+    arguments: []
+  Drupal\commerce_paymentsense_remotepayments\ConnectE\ClientInterface: '@Drupal\commerce_paymentsense_remotepayments\ConnectE\Client'
+
+  Drupal\commerce_paymentsense_remotepayments\ConnectE\ErrorMessageHandler:
+    arguments: [ ]
+  Drupal\commerce_paymentsense_remotepayments\ConnectE\ErrorMessageHandlerInterface: '@Drupal\commerce_paymentsense_remotepayments\ConnectE\ErrorMessageHandler'

@@ -1,0 +1,34 @@
+paymentsense_checkout:
+  version: VERSION
+  css:
+    layout:
+      assets/css/checkout.css: {}
+    theme:
+      assets/css/checkout.css: {}
+  js:
+    assets/js/checkout.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
+paymentsense_checkout_test:
+  version: VERSION
+  dependencies:
+    - commerce_paymentsense_remotepayments/paymentsense_checkout
+    - commerce_paymentsense_remotepayments/connect_e_test
+
+paymentsense_checkout_live:
+  version: VERSION
+  dependencies:
+    - commerce_paymentsense_remotepayments/paymentsense_checkout
+    - commerce_paymentsense_remotepayments/connect_e
+
+connect_e:
+  js:
+    https://web.e.connect.paymentsense.cloud/assets/js/client.js: { type: external}
+
+connect_e_test:
+  js:
+    https://web.e.test.connect.paymentsense.cloud/assets/js/client.js: { type:  external}

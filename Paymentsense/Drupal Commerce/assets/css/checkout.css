@@ -1,0 +1,28 @@
+#paymentsense-rp-submit-payment-btn {
+  visibility: hidden;
+  min-width: 200px;
+  margin-right: 0;
+}
+#paymentsense-rp-button-div {
+  padding: 5px 0 0 0;
+  text-align: right;
+  max-width: 400px;
+}
+
+#paymentsense-rp-payment-div iframe {
+  width: 100%;
+}
+#paymentsense-rp-payment-div {
+  padding: 0;
+  min-width: 400px;
+}
+iframe.threeDs {
+  width: 370px;
+  height: 366px;
+  margin: 100px 0 0 -175px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  background-color: #fff;
+}

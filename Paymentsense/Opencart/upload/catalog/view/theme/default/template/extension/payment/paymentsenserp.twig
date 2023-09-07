@@ -1,0 +1,185 @@
+<style>
+  #paymentsenserp-submit-payment-btn {
+    visibility: hidden;
+    min-width: 200px;
+  }
+  #paymentsenserp-button-div {
+    padding: 5px 0 0 0;
+    text-align: right;
+  }
+  #paymentsenserp-payment-div iframe { width: 100%; }
+  #paymentsenserp-payment-div { padding: 0; }
+  iframe.threeDs {
+    width: 370px;
+    height: 366px;
+    margin: 100px 0 0 -175px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    background-color: #FFF;
+  }
+</style>
+<script type="text/javascript">
+    const connect_e_config = {
+        paymentDetails: {
+            amount:       '{{ payment_details_amount }}',
+            currencyCode: '{{ payment_details_currency_code }}',
+            paymentToken: '{{ payment_details_payment_token }}',
+        },
+        containerId: "paymentsenserp-payment-div",
+        fontCss: ['https://fonts.googleapis.com/css?family=Roboto'],
+        styles: {
+            base: {
+                default: {
+                    padding: "12px 16px 12px 16px",
+                    width: "400px",
+                    height: "48px",
+                    borderRadius: "4px",
+                    border: "solid 1px rgba(0, 0, 0, 0.15)",
+                    fontFamily: "Roboto",
+                    fontSize: "16px",
+                    fontWeight: "normal",
+                    fontStretch: "normal",
+                    fontStyle: "normal",
+                    lineHeight: "1.5",
+                    letterSpacing: "0.15px",
+                    color: "rgba(0, 0, 0, 0.87)",
+                    marginBottom: "15px",
+                    boxShadow: 'none',
+                    backgroundColor: '#FFF'
+                },
+                focus: {
+                    outline: "none",
+                    borderWidth: "2px",
+                },
+                error: {
+                    border: "solid 1px #b00020"
+                },
+                valid: {
+                    border: "solid 1px #00857d"
+                },
+                label: {
+                    display: "block",
+                    width: "400px",
+                    height: "24px",
+                    fontFamily: "Roboto",
+                    fontSize: "16px",
+                    fontWeight: "normal",
+                    fontStretch: "normal",
+                    fontStyle: "normal",
+                    lineHeight: "1.5",
+                    letterSpacing: "0.15px",
+                    color: "rgba(0, 0, 0, 0.87)",
+                }
+            },
+            cardIcon: {
+                visibility: "hidden"
+            }
+        }
+    };
+{% if error_message != "" %}
+    let init_errors = [{ message: {{ error_message }} }];
+    if (init_errors && init_errors.length) {
+        displayConnectEerrors(init_errors)
+    }
+{% endif %}
+{% if payment_details_payment_token != "" %}
+    let connect_e;
+    let btn;
+    let connect_e_script = document.createElement('script');
+    connect_e_script.onload = initConnectE;
+    connect_e_script.src = '{{ client_js_url }}';
+    document.body.appendChild(connect_e_script);
+    function initConnectE() {
+        connect_e = new Connect.ConnectE(connect_e_config, displayConnectEerrors);
+        btn = document.getElementById("paymentsenserp-submit-payment-btn");
+        btn.onclick = executePaymentsenseRpPayment;
+
+        if (typeof jQuery !== 'undefined') {
+            jQuery("body").on('DOMSubtreeModified', "#paymentsenserp-payment-div", function() {
+                enableSubmitBtn();
+            });
+        } else {
+            enableSubmitBtn();
+        }
+    }
+{% endif %}
+    function executePaymentsenseRpPayment() {
+        disableSubmitBtn();
+        connect_e.executePayment()
+        .then(function(data) {
+            redirectToReturnUrl(data);
+        }).catch(function(data) {
+            if (data.hasOwnProperty('statusCode')) {
+                if (data.hasOwnProperty('message')) {
+                    showErrorMsg(data.statusCode, data.message);
+                } else {
+                    showErrorMsg(data.statusCode);
+                }
+            }
+            enableSubmitBtn();
+        });
+    }
+    function disableSubmitBtn() {
+        btn.style.visibility = "visible";
+        btn.innerHTML = "Processing...";
+        btn.disabled = true;
+    }
+    function enableSubmitBtn() {
+        btn.style.visibility = "visible";
+        btn.innerHTML = "{{ button_confirm }}";
+        btn.disabled = false;
+    }
+    function redirectToReturnUrl(data) {
+        setTimeout(function() { performRedirectToReturnUrl(data); }, 2000);
+    }
+    function performRedirectToReturnUrl(data) {
+        let form = document.createElement("form");
+        form.action = "{{ return_url }}";
+        form.method = "POST";
+        data.paymentToken = "{{ payment_details_payment_token }}";
+        for (let prop in data) {
+            if (!data.hasOwnProperty(prop)) {
+                continue;
+            }
+            let element = document.createElement("input");
+            element.name = prop;
+            element.value = data[prop];
+            element.type = "hidden";
+            form.appendChild(element);
+        }
+        document.body.appendChild(form);
+        form.submit();
+    }
+    function displayConnectEerrors(errors) {
+        let errors_div = document.getElementById("paymentsenserp-errors-div");
+        errors_div.innerHTML = '';
+        if (errors && errors.length) {
+            errors_div.classList.add("alert");
+            errors_div.classList.add("alert-danger");
+            let list = document.createElement("ul");
+            errors.forEach(function(error) {
+                let item = document.createElement("li");
+                item.innerText = error.message;
+                list.appendChild(item);
+            });
+            errors_div.appendChild(list);
+        } else {
+            errors_div.classList.remove("alert");
+            errors_div.classList.remove("alert-danger");
+        }
+    }
+    function showErrorMsg(err_no=0, err_msg='') {
+        if (err_no === 401) {
+            alert('An authentication error has occurred. The response from the gateway was: "' + err_msg + '". Please contact customer support.');
+        } else {
+            alert('An unexpected error has occurred. Please try again later.');
+        }
+    }
+</script>
+<legend>{{ title }}</legend>
+<p id="paymentsenserp_description">{{ message }}</p>
+<div id="paymentsenserp-payment-div"></div>
+<div id="paymentsenserp-errors-div"></div>
+<div id="paymentsenserp-button-div"><button id="paymentsenserp-submit-payment-btn" class="btn btn-primary"></button></div>

@@ -1,0 +1,26 @@
+{
+	"name": "Magento_Paymentsense_RP",
+
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "web",
+
+	// Uncomment the appropriate line depending on plugin vs theme development.
+	// This should match the active volume mount in docker-compose.yml
+	"workspaceFolder": "/var/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"php.suggest.basic": false // avoids duplicate autocomplete
+	},
+
+	// Add the IDs of any extensions you want installed.
+	"extensions": [
+		"felixfbecker.php-pack",		
+		"xdebug.php-debug"
+	],
+
+	// Sets up WordPress on container start.
+	"postCreateCommand": "bash ./mage-setup.sh",
+    "remoteUser": "root"
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2022 Paymentsense Ltd.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+@author      Paymentsense
+@copyright   2022 Paymentsense Ltd.
+@license     https://www.gnu.org/licenses/gpl-3.0.html
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <default>
+        <payment>
+            <paymentsense_remotepayments>
+                <active>0</active>
+                <model>Paymentsense\RemotePayments\Model\Method\RemotePayments</model>
+                <order_status>payment_review</order_status>
+                <title>Paymentsense</title>
+                <transaction_type>SALE</transaction_type>
+                <gateway_environment>TEST</gateway_environment>
+                <allowspecific>0</allowspecific>
+                <payment_currency>DISPLAY</payment_currency>
+                <allow_specific_currency>0</allow_specific_currency>
+                <log_level>1</log_level>
+                <group>remotepayments</group>
+            </paymentsense_remotepayments>
+        </payment>
+        <csp>
+            <mode>
+                <storefront>
+                    <report_only>0</report_only>
+                </storefront>
+                <admin>
+                    <report_only>0</report_only>
+                </admin>
+            </mode>
+        </csp>
+    </default>
+</config>

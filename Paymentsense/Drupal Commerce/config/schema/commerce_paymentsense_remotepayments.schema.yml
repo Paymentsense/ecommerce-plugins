@@ -1,0 +1,15 @@
+commerce_payment.commerce_payment_gateway.plugin.commerce_paymentsense_remotepayments:
+  type: commerce_payment_gateway_configuration
+  mapping:
+    gateway_username:
+      type: string
+      label: 'Gateway username'
+    gateway_jwt:
+      type: string
+      label: 'Gateway JWT'
+    order_prefix:
+      type: string
+      label: 'Order prefix'
+    transaction_type:
+      type: string
+      label: 'Transaction Type'

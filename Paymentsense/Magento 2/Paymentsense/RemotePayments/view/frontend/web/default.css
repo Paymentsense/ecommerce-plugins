@@ -1,0 +1,42 @@
+/*
+ * Copyright (C) 2022 Paymentsense Ltd.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * @author      Paymentsense
+ * @copyright   2022 Paymentsense Ltd.
+ * @license     https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+#remotepayments-place-order-btn {
+    visibility: hidden;
+}
+#remotepayments-payment-div iframe {
+    width: 100%;
+}
+#remotepayments-payment-div {
+    padding: 0;
+}
+iframe.threeDs {
+    width: 370px;
+    height: 366px;
+    margin: 100px 0 0 -175px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    background-color: #FFF;
+    z-index: 999999;
+}
+.before-remotepayments-payment-form-msg {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}

@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+
+msgid "Enable/Disable:"
+msgstr "Enable/Disable:"
+
+msgid "Enable "
+msgstr "Enable "
+
+msgid "Module Options"
+msgstr "Module Options"
+
+msgid "The following options affect how the %s Module is displayed on the frontend."
+msgstr "The following options affect how the %s Module is displayed on the frontend."
+
+msgid "Title:"
+msgstr "Title:"
+
+msgid "This controls the title which the customer sees during checkout."
+msgstr "This controls the title which the customer sees during checkout."
+
+msgid "Description:"
+msgstr "Description:"
+
+msgid "This controls the description which the customer sees during checkout."
+msgstr "This controls the description which the customer sees during checkout."
+
+msgid "Pay securely by credit or debit card through Paymentsense."
+msgstr "Pay securely by credit or debit card through Paymentsense."
+
+msgid "Order Prefix:"
+msgstr "Order Prefix:"
+
+msgid "This is the order prefix that you will see in the Merchant Portal."
+msgstr "This is the order prefix that you will see in the Merchant Portal."
+
+msgid "Gateway Settings"
+msgstr "Gateway Settings"
+
+msgid "These are the gateway settings to allow you to connect with the Paymentsense gateway."
+msgstr "These are the gateway settings to allow you to connect with the Paymentsense gateway."
+
+msgid "Gateway Username/URL:"
+msgstr "Gateway Username/URL:"
+
+msgid "This is the gateway username or URL."
+msgstr "This is the gateway username or URL."
+
+msgid "Gateway JWT:"
+msgstr "Gateway JWT:"
+
+msgid "This is the gateway JWT."
+msgstr "This is the gateway JWT."
+
+msgid "Transaction Type:"
+msgstr "Transaction Type:"
+
+msgid "If you wish to obtain authorisation for the payment only, as you intend to manually collect the payment via the Merchant Portal, choose Pre-auth."
+msgstr "If you wish to obtain authorisation for the payment only, as you intend to manually collect the payment via the Merchant Portal, choose Pre-auth."
+
+msgid "Gateway Environment:"
+msgstr "Gateway Environment:"
+
+msgid "Gateway environment for performing transactions."
+msgstr "Gateway environment for performing transactions."
+
+msgid "Sale"
+msgstr "Sale"
+
+msgid "Pre-Auth"
+msgstr "Pre-Auth"
+
+msgid "Pay with Paymentsense"
+msgstr "Pay with Paymentsense"
+
+msgid "Cancel order &amp; restore cart"
+msgstr "Cancel order &amp; restore cart"
+
+msgid "This payment method requires an encrypted connection. "
+msgstr "This payment method requires an encrypted connection. "
+
+msgid "The Paymentsense payment method requires an encrypted connection."
+msgstr "The Paymentsense payment method requires an encrypted connection."
+
+msgid "Please enable SSL/TLS."
+msgstr "Please enable SSL/TLS."
+
+msgid "The Paymentsense payment method is not configured."
+msgstr "The Paymentsense payment method is not configured."
+
+msgid "Please check your card details and try again."
+msgstr "Please check your card details and try again."
+
+msgid "An unexpected error has occurred."
+msgstr "An unexpected error has occurred."
+
+msgid "An error has occurred. (HTTP Status Code: %1$s, Payment Gateway Message: %2$s). "
+msgstr "An error has occurred. (HTTP Status Code: %1$s, Payment Gateway Message: %2$s). "
+
+msgid "An error has occurred. (cURL Error No: %1$s, cURL Error Message: %2$s). "
+msgstr "An error has occurred. (cURL Error No: %1$s, cURL Error Message: %2$s). "
+
+msgid "Please contact customer support."
+msgstr "Please contact customer support."
+
+msgid "Please contact customer support quoting your order #%s."
+msgstr "Please contact customer support quoting your order #%s."
+
+msgid "Refund was declined. (Status Code: %1$s, Payment Gateway Message: %2$s). "
+msgstr "Refund was declined. (Status Code: %1$s, Payment Gateway Message: %2$s). "
+
+msgid "Refund cannot be performed at this time. Please try again after 60 seconds. "
+msgstr "Refund cannot be performed at this time. Please try again after 60 seconds. "
+
+msgid "Refund for %1$.2f %2$s processed successfully."
+msgstr "Refund for %1$.2f %2$s processed successfully."
+
+msgid "Access token is empty."
+msgstr "Access token is empty."
+
+msgid "Order ID is empty."
+msgstr "Order ID is empty."
+
+msgid "Order ID is invalid."
+msgstr "Order ID is invalid."
+
+msgid "Payment notification received."
+msgstr "Payment notification received."
+
+msgid "Payment processed successfully. "
+msgstr "Payment processed successfully. "
+
+msgid "Pending payment"
+msgstr "Pending payment"
+
+msgid "Payment failed due to: "
+msgstr "Payment failed due to: "
+
+msgid "HTTP Code: %1$s; Status Code %2$s; Message: %3$s;"
+msgstr "HTTP Code: %1$s; Status Code %2$s; Message: %3$s;"
+
+msgid "cURL Error No: %1$s; cURL Error Message: %2$s;"
+msgstr "cURL Error No: %1$s; cURL Error Message: %2$s;"
+
+msgid "Payment status is unknown because of a communication error or unknown/unsupported payment status."
+msgstr "Payment status is unknown because of a communication error or unknown/unsupported payment status."
+
+msgid "Payment status is unknown. Please contact customer support quoting your order #%s and do not retry the payment for this order unless you are instructed to do so."
+msgstr "Payment status is unknown. Please contact customer support quoting your order #%s and do not retry the payment for this order unless you are instructed to do so."
+
+msgid "An error occurred while processing order#%1$s. Error message: %2$s"
+msgstr "An error occurred while processing order#%1$s. Error message: %2$s"
+
+msgid "400 Bad Request"
+msgstr "400 Bad Request"
+
+msgid "The attempted request to this URL is malformed or illegal. If you believe you are receiving this message in error, please contact customer support."
+msgstr "The attempted request to this URL is malformed or illegal. If you believe you are receiving this message in error, please contact customer support."

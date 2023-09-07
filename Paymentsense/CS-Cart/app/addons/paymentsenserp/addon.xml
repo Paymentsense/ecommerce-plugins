@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>paymentsenserp</id>
+    <name>Paymentsense Remote Payments</name>
+    <supplier>Paymentsense</supplier>
+    <supplier_link>https://www.paymentsense.com</supplier_link>
+    <description>Allows you to take payments via Paymentsense Remote Payments.</description>
+    <version>1.1</version>
+    <priority>100500</priority>
+    <status>active</status>
+    <queries>
+        <item for="install" type="file">database/install.sql</item>
+        <item for="uninstall" type="file">database/uninstall.sql</item>
+    </queries>
+    <functions>
+        <item for="uninstall">fn_paymentsenserp_uninstall</item>
+    </functions>
+</addon>

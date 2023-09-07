@@ -1,0 +1,70 @@
+version: '3'
+services:
+  web:
+    build: ./
+    ports:
+      - 8090:80
+      - 443:443
+      - '8092:22'      
+    depends_on:
+      - db
+      - elasticsearch
+    environment:
+      WEB_ALIAS_DOMAIN: local.domain.com
+      WEB_DOCUMENT_ROOT: /app/pub
+      PHP_DATE_TIMEZONE: EST
+      PHP_DISPLAY_ERRORS: 1
+      PHP_MEMORY_LIMIT: 2048M
+      PHP_MAX_EXECUTION_TIME: 300
+      PHP_POST_MAX_SIZE: 500M
+      PHP_UPLOAD_MAX_FILESIZE: 1024M
+    links:
+      - db
+      - elasticsearch
+    volumes:
+      - magento:/app:cached
+      - ../:/var/workspace
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: magento
+     # MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    ports:
+      - 3306:3306
+    volumes:
+      - data:/var/lib/mysql
+
+  elasticsearch:
+      image: markoshust/magento-elasticsearch:7.16-0
+      ports:
+        - "9200:9200"
+        - "9300:9300"
+      environment:
+        - "discovery.type=single-node"
+        ## Set custom heap size to avoid memory errors
+        - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+        ## Avoid test failures due to small disks
+        ## More info at https://github.com/markshust/docker-magento/issues/488
+        - "cluster.routing.allocation.disk.threshold_enabled=false"
+        - "index.blocks.read_only_allow_delete"
+
+  phpmyadmin:
+      container_name: phpmyadmin
+      restart: always
+      image: phpmyadmin/phpmyadmin:latest
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        PMA_USER: root
+        PMA_PASSWORD: root
+      ports:
+        - "8085:80"
+      links:
+        - db:db
+      depends_on:
+        - db
+
+volumes:
+  data:
+  magento:

@@ -1,0 +1,217 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="button" id="paymentsenserp_submit" data-form="form-paymentsenserp" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-fluid module-controls-container">
+      <div class="alert alert-notification alert-dismissible">
+        <span class="alert-text"></span>
+        <button type="button" class="close" data-hide="alert-notification">&times;</button>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>{{ text_extension_version }}</strong> {{ extension_version }}</h3>
+        </div>
+        <div class="panel-body">
+          <form data-action="{{ action }}" data-method="post" enctype="multipart/form-data" id="form-paymentsenserp" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_status" id="input-status" class="form-control">
+                  {% if paymentsenserp_status %}
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                  {% else %}
+                    <option value="1">{{ text_enabled }}</option>
+                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                  {% endif %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group required">
+              <label class="col-sm-2 control-label" for="input-title">{{ entry_title }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_title" value="{{ paymentsenserp_title }}" placeholder="{{ entry_title }}" id="input-title" class="form-control" />
+                <div id="hint-title">{{ hint_title }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-description">{{ entry_description }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_description" value="{{ paymentsenserp_description }}" placeholder="{{ entry_description }}" id="input-description" class="form-control" />
+                <div id="hint-description">{{ hint_description }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-order-prefix">{{ entry_order_prefix }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_order_prefix" value="{{ paymentsenserp_order_prefix }}" placeholder="{{ entry_order_prefix }}" id="input-order-prefix" class="form-control" />
+                <div id="hint-order-prefix">{{ hint_order_prefix }}</div>
+              </div>
+            </div>
+            <div class="form-group required">
+              <label class="col-sm-2 control-label" for="input-gateway-username">{{ entry_gateway_username }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_gateway_username" value="{{ paymentsenserp_gateway_username }}" placeholder="{{ entry_gateway_username }}" id="input-gateway-username" class="form-control" />
+                <div id="hint-gateway-username">{{ hint_gateway_username }}</div>
+              </div>
+            </div>
+            <div class="form-group required">
+              <label id="label-gateway-jwt" class="col-sm-2 control-label" for="input-gateway-jwt">{{ entry_gateway_jwt }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_gateway_jwt" value="{{ paymentsenserp_gateway_jwt }}" placeholder="{{ entry_gateway_jwt }}" id="input-gateway-jwt" class="form-control" />
+                <div id="hint-gateway-jwt">{{ hint_gateway_jwt }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-transaction-type">{{ entry_transaction_type }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_transaction_type" id="input-transaction-type" class="form-control">
+                  <option value="SALE"{% if paymentsenserp_transaction_type == "SALE" %} selected="selected"{% endif %}>{{ text_sale }}</option>
+                  <option value="PREAUTH"{% if paymentsenserp_transaction_type == "PREAUTH" %} selected="selected"{% endif %}>{{ text_preauth }}</option>
+                </select>
+                <div id="hint-transaction-type">{{ hint_transaction_type }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-gateway-environment">{{ entry_gateway_environment }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_gateway_environment" id="input-gateway-environment" class="form-control">
+                  <option value="TEST"{% if paymentsenserp_gateway_environment == "TEST" %} selected="selected"{% endif %}>{{ text_test }}</option>
+                  <option value="PROD"{% if paymentsenserp_gateway_environment == "PROD" %} selected="selected"{% endif %}>{{ text_prod }}</option>
+                </select>
+                <div id="hint-gateway-environment">{{ hint_gateway_environment }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-order-status">{{ entry_order_status }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_successful_order_status_id" id="input-order-status" class="form-control">
+                  {% for order_status in order_statuses %}
+                    {% if order_status['order_status_id'] == paymentsenserp_successful_order_status_id %}
+                      <option value="{{ order_status['order_status_id'] }}" selected="selected">{{ order_status['name'] }}</option>
+                    {% else %}
+                      <option value="{{ order_status['order_status_id'] }}">{{ order_status['name'] }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-failed-order-status">{{ entry_failed_order_status }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_failed_order_status_id" id="input-failed-order-status" class="form-control">
+                  {% for order_status in order_statuses %}
+                    {% if order_status['order_status_id'] == paymentsenserp_failed_order_status_id %}
+                      <option value="{{ order_status['order_status_id'] }}" selected="selected">{{ order_status['name'] }}</option>
+                    {% else %}
+                      <option value="{{ order_status['order_status_id'] }}">{{ order_status['name'] }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-geo-zone">{{ entry_geo_zone }}</label>
+              <div class="col-sm-10">
+                <select name="paymentsenserp_geo_zone_id" id="input-geo-zone" class="form-control">
+                  <option value="0">{{ text_all_zones }}</option>
+                  {% for geo_zone in geo_zones %}
+                    {% if geo_zone.geo_zone_id == paymentsenserp_geo_zone_id %}
+                      <option value="{{ geo_zone.geo_zone_id }}" selected="selected">{{ geo_zone.name }}</option>
+                    {% else %}
+                      <option value="{{ geo_zone.geo_zone_id }}">{{ geo_zone.name }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-sort-order">{{ entry_sort_order }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="paymentsenserp_sort_order" value="{{ paymentsenserp_sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}
+
+<script type="text/javascript">
+
+    function hideAlertNotification() {
+        let alert_notification_holder = $('.module-controls-container').find('.alert-notification');
+        alert_notification_holder.slideUp();
+    }
+
+    function showMessage(message_type, message_text) {
+        let alert_notification_holder = $('.module-controls-container').find('.alert-notification');
+        let alert_notification_class = 'alert-' + message_type;
+        let notification_types = [
+            'info',
+            'success',
+            'warning',
+            'danger'
+        ];
+
+        alert_notification_holder.find('.alert-text').html(message_text);
+
+        $.each(notification_types, function(index, key) {
+            alert_notification_holder.removeClass('alert-' + key);
+        });
+
+        alert_notification_holder.addClass(alert_notification_class).slideDown();
+    }
+
+    $(function() {
+
+        hideAlertNotification();
+
+      {% if warning_insecure_connection %}
+        showMessage('warning', '{{ warning_insecure_connection }}');
+      {% endif %}
+
+        $("[data-hide]").on("click", function(){
+            $("." + $(this).attr("data-hide")).slideUp();
+        });
+
+        $('#paymentsenserp_submit').click(function() {
+            let settings_form = $('#' + $(this).attr('data-form'));
+
+            hideAlertNotification();
+
+            $.ajax({
+                url:  settings_form.attr('data-action'),
+                type: settings_form.attr('data-method'),
+                data: settings_form.serialize(),
+                beforeSend: function () {
+                    $('#paymentsenserp_submit').attr('disabled', 'disabled');
+                },
+                complete: function() {
+                    $('#paymentsenserp_submit').removeAttr('disabled').blur();
+                },
+                success: function (message) {
+                    showMessage(message['type'], message['text']);
+                },
+                error: function(xhr) {
+                    showMessage('danger', '{{ error_save_failed }}' + ' (Status: ' +xhr.status + ', StatusText: ' + xhr.statusText + ', ResponseText: ' + xhr.responseText +')');
+                }
+            });
+        });
+    });
+
+</script>

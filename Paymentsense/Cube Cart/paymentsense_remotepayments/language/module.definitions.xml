@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Paymentsense - Remote Payments
+
+ * Web:   http://www.paymentsense.com
+ * Email:  devsupport@paymentsense.com
+ * License:  GPL-3.0 http://opensource.org/licenses/GPL-3.0
+-->
+<definitions version="1.0">
+	<group name="paymentsense_remotepayments">
+		<string name="module_title"><![CDATA[Paymentsense - Remote Payments]]></string>
+		<string name="module_version"><![CDATA[v1.0.0]]></string>
+		<string name="module_date"><![CDATA[14 September 2021]]></string>
+
+		<string name="merchantsettings_title"><![CDATA[PaymentSense - Remote Payments]]></string>
+		<string name="merchantsettings_description"><![CDATA[Enter your Paymentsense - Remote Payments Gateway details below.]]></string>
+		<string name="merchantsettings_gateway_username"><![CDATA[Gateway username/URL]]></string>
+		<string name="merchantsettings_gateway_jwt"><![CDATA[Gateway JWT]]></string>
+		<string name="merchantsettings_environment"><![CDATA[Gateway environment]]></string>
+		<string name="merchantsettings_env_production"><![CDATA[Production]]></string>
+		<string name="merchantsettings_env_test"><![CDATA[Test]]></string>
+		<string name="merchantsettings_order_prefix"><![CDATA[Order prefix]]></string>
+	</group>
+</definitions>

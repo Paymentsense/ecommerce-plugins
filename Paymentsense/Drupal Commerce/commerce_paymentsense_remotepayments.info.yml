@@ -1,0 +1,11 @@
+name: Paymentsense - Remote Payments for Drupal Commerce
+type: module
+description: 'Accept payments from credit/debit cards through Paymentsense - Remote Payments.'
+package: Commerce (contrib)
+core_version_requirement: ^9
+version: 1.0.5
+dependencies:
+  - commerce:commerce
+  - commerce:commerce_payment
+interface translation project: paymentsense_remote_payments
+interface translation server pattern: modules/contrib/commerce_paymentsense_remotepayments/translations/%language.po

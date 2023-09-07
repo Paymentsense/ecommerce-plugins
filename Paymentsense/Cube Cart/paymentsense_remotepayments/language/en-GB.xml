@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<language version="1.0">
+	<info>
+		<title>en-GB</title>
+		<code>en-GB</code>
+		<character_set>utf-8</character_set>
+		<version>1.0.0</version>
+		<minVersion>6.0.0</minVersion>
+		<maxVersion>6.*.*</maxVersion>
+	</info>
+	<translation>
+		<group name="paymentsense_remotepayments">
+			<string name="error_SSL_NOT_ENABLED"><![CDATA[Please enable SSL/TLS.]]></string>
+			<string name="error_UNKNOWN_STATUS_CODE"><![CDATA[Payment status is unknown because of a communication error or unknown/unsupported payment status. Status Code @statusCode; Message: @gatewayMessage]]></string>
+			<string name="error_EMPTY_ACCESS_TOKEN"><![CDATA[Access token is empty. Please contact customer support.]]></string>
+			<string name="error_CURL_ERROR"><![CDATA[An error has occurred. (cURL Error No: @curlErrorNumber, cURL Error Message: @curlErrorMessage, HTTP Code: @httpCode).]]></string>
+			<string name="error_PAYMENT_FAILED"><![CDATA[Payment failed due to: @gatewayMessage]]></string>
+			<string name="error_CURL_NOT_ENABLED"><![CDATA[Curl not enabled. Please enable curl.]]></string>
+			<string name="error_UNEXPECTED_ERROR"><![CDATA[An unexpected error has occurred. Please contact customer support.]]></string>
+			<string name="error_PAYMENT_METHOD_NOT_CONFIGURED"><![CDATA[The Paymentsense - Remote Payments payment method is not configured.]]></string>
+			<string name="error_ERROR_OCCURRED"><![CDATA[An error occurred.]]></string>
+			<string name="error_NO_RETRY"><![CDATA[Payment status is unknown. Please contact customer support and do not retry the payment for this order unless you are instructed to do so.]]></string>
+			<string name="error_URL_NOT_BUILT"><![CDATA[Url not built]]></string>
+		</group>
+	</translation>
+</language>

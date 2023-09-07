@@ -1,0 +1,29 @@
+{
+	"name": "WooCommerce_Paymentsense",
+
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "wordpress",
+
+	// Uncomment the appropriate line depending on plugin vs theme development.
+	// This should match the active volume mount in docker-compose.yml
+	"workspaceFolder": "/var/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"php.suggest.basic": false // avoids duplicate autocomplete
+	},
+
+	// Add the IDs of any extensions you want installed.
+	"extensions": [
+		"felixfbecker.php-pack",		
+		"wordpresstoolbox.wordpress-toolbox",
+		"johnbillion.vscode-wordpress-hooks",
+		"xdebug.php-debug",
+		"bmewburn.vscode-intelephense-client"
+	],
+
+	// Sets up WordPress on container start.
+	"postCreateCommand": ".devcontainer/wp-setup.sh",
+	"remoteUser": "vscode"
+}

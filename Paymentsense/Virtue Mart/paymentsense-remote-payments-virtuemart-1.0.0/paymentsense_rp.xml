@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.0.0" type="plugin" group="vmpayment">
+    <name>VM Payment - Paymentsense Remote Payments</name>
+    <creationDate>September 1 2021</creationDate>
+    <author>Paymentsense</author>
+    <authorUrl>https://www.paymentsense.co.uk</authorUrl>
+    <copyright>Copyright (C) 2021 Paymentsense Ltd. All rights reserved.</copyright>
+    <license>https://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>1.0.0</version>
+    <element>paymentsense_rp</element>
+    <description>
+        Payment module for VirtueMart, allowing you to take payments via Paymentsense Remote Payments.
+    </description>
+    <files>
+        <filename plugin="paymentsense_rp">paymentsense_rp.php</filename>
+        <folder>paymentsense_rp</folder>
+    </files>
+    <vmconfig>
+        <fields name="params">
+            <fieldset name="payment" addfieldpath="/administrator/components/com_virtuemart/fields">
+                <field type="text"
+                       required="true"
+                       name="order_prefix"
+                       size="60"
+                       label="Order Prefix"
+                       description="This is the order prefix that you will see in the Merchant Portal."
+                       default="VM-"
+                />
+                <field type="text"
+                       required="true"
+                       name="gateway_username"
+                       size="60"
+                       label="Gateway Username/URL"
+                       description="This is the gateway username or URL."
+                />
+                <field type="text"
+                       required="true"
+                       name="gateway_jwt"
+                       size="60"
+                       label="Gateway JWT"
+                       description="This is the gateway JWT."
+                />
+                <field type="list"
+                       name="gateway_environment"
+                       default="TEST"
+                       label="Gateway Environment"
+                       description="Gateway environment for performing transactions.">
+                    <option value="TEST">Test</option>
+                    <option value="PROD">Production</option>
+                </field>
+                <field type="list"
+                       name="gateway_transaction_type"
+                       default="SALE"
+                       label="Transaction Type"
+                       description="If you wish to obtain authorisation for the payment only, as you intend to manually collect the payment via the Merchant Portal, choose Pre-auth.">
+                    <option value="SALE">SALE</option>
+                    <option value="PREAUTH">PREAUTH</option>
+                </field>
+            </fieldset>
+        </fields>
+    </vmconfig>
+</extension>
